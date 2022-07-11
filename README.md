@@ -14,14 +14,14 @@ Run `nvim` and wait for the plugins to be installed
 
 ## Dependencies
 
-- Ripgrep # for telescope
+- Ripgrep for Telescope
 
 ```
 sudo apt install ripgrep
 sudo pacman -S ripgrep
 ```
 
-- Lazygit, NCDU # for toggleterm
+- Lazygit, NCDU for Toggleterm
 
 ```
 sudo apt install lazygit
@@ -42,7 +42,7 @@ sudo apt install stylua flake8 python-black shfmt shellcheck-bin google-java-for
 sudo pacman -S stylua flake8 python-black shfmt shellcheck-bin google-java-format
 ```
 
-**NOTE:** (You can change/add any source. See details in [null-ls]('https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md']))
+**NOTE:** (You can change/add any source. See details in [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md))
 
 ## Get healthy
 
@@ -91,7 +91,6 @@ Next we need to install python support (node is optional)
 ## Fonts
 
 - [A nerd font](https://github.com/ryanoasis/nerd-fonts)
-
 - [codicon](https://github.com/microsoft/vscode-codicons/raw/main/dist/codicon.ttf)
 - [An emoji font](https://github.com/googlefonts/noto-emoji/blob/main/fonts/NotoColorEmoji.ttf)
 
