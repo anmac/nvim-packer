@@ -31,7 +31,7 @@ telescope.setup({
 				["<C-v>"] = actions.select_vertical,
 				["<C-t>"] = actions.select_tab,
 
-				["<c-d>"] = require("telescope.actions").delete_buffer,
+				["<c-d>"] = actions.delete_buffer,
 
 				-- ["<C-u>"] = actions.preview_scrolling_up,
 				-- ["<C-d>"] = actions.preview_scrolling_down,

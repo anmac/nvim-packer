@@ -6,7 +6,7 @@ end
 local gitSings = {
   add = "", -- ▎
   change = "", -- ▎
-  delete = "", -- 契  
+  delete = "", -- 契 
   topdelete = "", --  
   changedelete= "契", -- ▎ 
 }

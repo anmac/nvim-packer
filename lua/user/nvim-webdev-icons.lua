@@ -52,4 +52,10 @@ nvim_web_devicons.set_icon({
 		cterm_color = "59",
 		name = "Diff",
 	},
+	["Dockerfile"] = {
+		icon = "",
+		color = "#6dc8f2",
+		cterm_color = "59",
+		name = "Dockerfile",
+	},
 })
