@@ -5,8 +5,8 @@ end
 project.setup({
 	active = true,
 	on_config_done = nil,
-	detection_methods = { "pattern" },
-	patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
+	detection_methods = { "lsp", "pattern" },
+	patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "build/env.sh" },
   show_hidden = true,
 	exclude_dirs = { "~/.dotfiles/*", "~/.cargo/*" },
 })

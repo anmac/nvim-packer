@@ -106,6 +106,12 @@ local mappings = {
 	["z"] = { "<cmd>ZenMode<CR>", "Zen" },
 	["gy"] = "Link",
 
+	c = { -- set foldmethod=manual
+		name = "Folding",
+		c = { "<Esc>zfi{", "Curly Braces" },
+		b = { "<Esc>zfi[", "Brackets" },
+	},
+
 	p = {
 		name = "Packer",
 		c = { "<cmd>PackerCompile<CR>", "Compile" },
@@ -158,7 +164,7 @@ local mappings = {
 			"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>",
 			"Find files",
 		},
-		F = { "<cmd>Telescope find_files<CR>", "Find Text with preview" },
+		F = { "<cmd>Telescope find_files<CR>", "Find Files with preview" },
 		g = { "<cmd>Telescope live_grep theme=ivy<CR>", "Find Text" },
 		h = { "<cmd>Telescope help_tags<CR>", "Help" },
 		i = { "<cmd>lua require('telescope').extensions.media_files.media_files()<CR>", "Media" },

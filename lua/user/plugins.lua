@@ -58,8 +58,8 @@ return packer.startup(function(use)
 	use("antoinemadec/FixCursorHold.nvim") -- Fix CursorHold Performance. This is needed to fix lsp doc highlight
 	use("folke/which-key.nvim") -- Display a popup with possible keybindings
 	use("folke/zen-mode.nvim") -- 🧘 Distraction-free coding for Neovim
-	use({ "christianchiarulli/nvim-gps", branch = "text_hl" })
-	-- use("SmiteshP/nvim-navic") -- Simple plugin that shows your current code context
+	-- use({ "christianchiarulli/nvim-gps", branch = "text_hl" })
+	use("SmiteshP/nvim-navic") -- Simple plugin that shows your current code context
 
 	-- Colorschemes
 	use("lunarvim/darkplus.nvim")

@@ -22,6 +22,7 @@ nvim_tree.setup({
 		exclude = { ".gitignore" },
 	},
 	renderer = {
+    group_empty = true,
 		highlight_git = false,
 		highlight_opened_files = "none",
 		root_folder_modifier = ":t",
@@ -81,7 +82,7 @@ nvim_tree.setup({
 	},
 	update_focused_file = {
 		enable = true,
-		update_cwd = true,
+		update_cwd = false,
 		ignore_list = {},
 	},
 	git = {
