@@ -75,7 +75,7 @@ local m_opts = {
 local m_mappings = {
 	a = { "<cmd>BookmarkAnnotate<CR>", "Annotate" },
 	c = { "<cmd>BookmarkClear<CR>", "Clear" },
-	h = { '<cmd>lua require("harpoon.mark").add_file()<CR>', "Harpoon" },
+	h = { "<cmd>lua require('harpoon.mark').add_file()<CR>", "Harpoon" },
 	j = { "<cmd>BookmarkNext<CR>", "Next" },
 	k = { "<cmd>BookmarkPrev<CR>", "Prev" },
 	m = { "<cmd>BookmarkToggle<CR>", "Toggle" },
@@ -84,12 +84,12 @@ local m_mappings = {
 	--   "<cmd>lua require('telescope').extensions.vim_bookmarks.all({ hide_filename=false, prompt_title=\"bookmarks\", shorten_path=false })<CR>",
 	--   "Show",
 	-- },
-	u = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>', "Harpoon UI" },
+	u = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Harpoon UI" },
 	x = { "<cmd>BookmarkClearAll<CR>", "Clear All" },
 }
 
 local mappings = {
-	["/"] = { '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', "Comment" },
+	["/"] = { "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", "Comment" },
 	["a"] = { "<cmd>Alpha<CR>", "Alpha" },
 	-- b = { "<cmd>lua require('user.bfs').open()<CR>", "Buffers" },
 	["b"] = {
@@ -108,11 +108,11 @@ local mappings = {
 
 	c = {
 		name = "Comment",
-		c = { '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', "Line-comment toggle" },
-		b = { '<cmd>lua require("Comment.api").toggle.blockwise.current()<CR>', "Block-comment toggle" },
-		O = { '<cmd>lua require("Comment.api").insert.linewise.above()<CR>', "Comment line above" },
-		o = { '<cmd>lua require("Comment.api").insert.linewise.below()<CR>', "Comment line below" },
-		A = { '<cmd>lua require("Comment.api").insert.linewise.eol()<CR>', "Comment at the end" },
+		c = { "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", "Line-comment toggle" },
+		b = { "<cmd>lua require('Comment.api').toggle.blockwise.current()<CR>", "Block-comment toggle" },
+		O = { "<cmd>lua require('Comment.api').insert.linewise.above()<CR>", "Comment line above" },
+		o = { "<cmd>lua require('Comment.api').insert.linewise.below()<CR>", "Comment line below" },
+		A = { "<cmd>lua require('Comment.api').insert.linewise.eol()<CR>", "Comment at the end" },
 	},
 
 	C = { -- set foldmethod=manual
@@ -217,7 +217,7 @@ local mappings = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<CR>",
 			"Workspace Symbols",
 		},
-		t = { '<cmd>lua require("user.functions").toggle_diagnostics()<CR>', "Toggle Diagnostics" },
+		t = { "<cmd>lua require('user.functions').toggle_diagnostics()<CR>", "Toggle Diagnostics" },
 		u = { "<cmd>LuaSnipUnlinkCurrent<CR>", "Unlink Snippet" },
 	},
 
@@ -229,20 +229,23 @@ local mappings = {
 
 	o = {
 		name = "Options",
-		w = { '<cmd>lua require("user.functions").toggle_option("wrap")<CR>', "Wrap" },
-		r = { '<cmd>lua require("user.functions").toggle_option("relativenumber")<CR>', "Relative" },
-		l = { '<cmd>lua require("user.functions").toggle_option("cursorline")<CR>', "Cursorline" },
-		s = { '<cmd>lua require("user.functions").toggle_option("spell")<CR>', "Spell" },
-		t = { '<cmd>lua require("user.functions").toggle_tabline()<CR>', "Tabline" },
+		w = { "<cmd>lua require('user.functions').toggle_option('wrap')<CR>", "Wrap" },
+		r = { "<cmd>lua require('user.functions').toggle_option('relativenumber')<CR>", "Relative" },
+		l = { "<cmd>lua require('user.functions').toggle_option('cursorline')<CR>", "Cursorline" },
+		s = { "<cmd>lua require('user.functions').toggle_option('spell')<CR>", "Spell" },
+		t = { "<cmd>lua require('user.functions').toggle_tabline()<CR>", "Tabline" },
 	},
 
 	p = {
 		name = "Packer",
-		c = { "<cmd>PackerCompile<CR>", "Compile" },
-		i = { "<cmd>PackerInstall<CR>", "Install" },
-		s = { "<cmd>PackerSync<CR>", "Sync" },
-		S = { "<cmd>PackerStatus<CR>", "Status" },
-		u = { "<cmd>PackerUpdate<CR>", "Update" },
+		c = { "<cmd>PackerCompile profile=true<CR>", "Compile" }, -- Regenerate compiled loader file
+		C = { "<cmd>lua require('packer').clean()<CR>", "Clean" }, -- Remove any disabled or unused plugins
+		i = { "<cmd>lua require('packer').install()<CR>", "Install" }, -- Clean, then install missing plugins
+		u = { "<cmd>lua require('packer').update()<CR>", "Update" }, -- Clean, then update and install plugins
+		s = { "<cmd>lua require('packer').sync()<CR>", "Sync" }, -- Perform `PackerUpdate` and then `PackerCompile`
+		S = { "<cmd>lua require('packer').snapshot()<CR>", "Create Snapshot" }, -- Perform `PackerUpdate` and then `PackerCompile`
+		d = { "<cmd>lua require('packer').delete()<CR>", "Delete Snapshot" }, -- Deletes a snapshot given the name or the absolute path
+		r = { "<cmd>lua require('packer').rollback()<CR>", "Rollback to Snapshot" }, -- Reverts plugins to the commit specified in the snapshot
 	},
 
 	r = {
