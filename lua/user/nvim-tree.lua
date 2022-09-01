@@ -11,18 +11,28 @@ end
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup({
-  hijack_cursor = true,
+	hijack_cursor = true,
 	reload_on_bufenter = true,
 	ignore_ft_on_setup = {
 		"startify",
 		"dashboard",
 		"alpha",
+		"toggleterm",
 	},
-	filters = {
-		exclude = { ".gitignore" },
+	view = {
+		width = 30,
+		height = 30,
+		hide_root_folder = false,
+		side = "left",
+		mappings = {
+			custom_only = false,
+			list = {
+				{ key = "v", cb = tree_cb("vsplit") },
+			},
+		},
 	},
 	renderer = {
-    group_empty = true,
+		group_empty = true,
 		highlight_git = false,
 		highlight_opened_files = "none",
 		root_folder_modifier = ":t",
@@ -30,9 +40,11 @@ nvim_tree.setup({
 		indent_markers = {
 			enable = true,
 			icons = {
-				corner = "└ ",
-				edge = "│ ",
-				none = "  ",
+				corner = "└",
+				edge = "│",
+				item = "│",
+				bottom = "─",
+				none = " ",
 			},
 		},
 		icons = {
@@ -49,6 +61,7 @@ nvim_tree.setup({
 			glyphs = {
 				default = "", -- 
 				symlink = "",
+				bookmark = "",
 				folder = {
 					arrow_open = "",
 					arrow_closed = "",
@@ -87,19 +100,13 @@ nvim_tree.setup({
 	},
 	git = {
 		enable = true,
-		ignore = true,
-		timeout = 500,
+		ignore = false,
+		show_on_dirs = true,
+		timeout = 400,
 	},
-	view = {
-		width = 30,
-		height = 30,
-		hide_root_folder = false,
-		side = "left",
-		mappings = {
-			custom_only = false,
-			list = {
-				{ key = "v", cb = tree_cb("vsplit") },
-			},
-		},
+	filters = {
+		dotfiles = false,
+		custom = {},
+		exclude = {},
 	},
 })

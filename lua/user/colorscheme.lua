@@ -7,7 +7,7 @@ end
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
-	vim.notify(colorscheme .. "colorscheme " .. " not found!")
+	vim.notify(colorscheme .. " colorscheme " .. "not found!")
 	return
 end
 
@@ -17,6 +17,8 @@ if colorscheme == "gruvbox" or colorscheme == "gruvbox-material" then
 	if colorscheme == "gruvbox" then
 		vim.cmd([[highlight Normal guibg=NONE ctermfg=NONE]])
 	end
+else
+  vim.cmd([[highlight Comment guifg=#9EA0AA]])
 end
 
 ---------------------------------------------------

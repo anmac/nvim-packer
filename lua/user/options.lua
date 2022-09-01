@@ -50,7 +50,7 @@ end
 vim.opt.shortmess:append("c")
 vim.opt.whichwrap:append("<,>,[,],h,l") -- vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.opt.iskeyword:append("-") -- vim.cmd([[set iskeyword+=-]])
-vim.cmd([[set lcs=eol:↲,tab:··,space:·,multispace:·,trail:·,nbsp:☠]]) -- ·●'↲'
+vim.cmd([[set lcs=eol:↲,tab:··,space:·,multispace:·,trail:·,nbsp:☠]]) -- ●•∙↲
 -- vim.opt.formatoptions:remove("cro") -- vim.cmd([[set formatoptions-=cro]])
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1

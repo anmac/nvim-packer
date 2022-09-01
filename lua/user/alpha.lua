@@ -21,8 +21,9 @@ dashboard.section.buttons.val = {
 	dashboard.button("c", " " .. "Config", ":e ~/.config/nvim/init.lua <CR>"),
 	dashboard.button("q", " " .. "Quit", ":qa<CR>"),
 }
+local nvim_version = vim.fn.system("nvim --version | head -1")
 local function footer()
-	return "anmac.dev"
+  return "anmac.dev" .. " - " .. nvim_version
 end
 
 dashboard.section.footer.val = footer()

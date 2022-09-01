@@ -75,6 +75,7 @@ return packer.startup(function(use)
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
+		run = ":CatppuccinCompile",
 	})
 
 	-- cmp plugins
@@ -114,11 +115,17 @@ return packer.startup(function(use)
 	use("JoosepAlviste/nvim-ts-context-commentstring") -- setting the commentstring based on the cursor location in a file
 	use("p00f/nvim-ts-rainbow")
 	use("windwp/nvim-ts-autotag") -- Autopairs, integrates with both cmp and treesitter
-	-- use "nvim-treesitter/playground"
+	use("nvim-treesitter/playground") -- Treesitter playground integrated into Neovim
+	use({
+		"kylechui/nvim-surround", -- Add/change/delete surrounding delimiter pairs with ease
+		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+	})
 
 	-- Git
 	use("lewis6991/gitsigns.nvim") -- Git integration for buffers
 	use("tpope/vim-fugitive") -- fugitive.vim: A Git wrapper so awesome, it should be illegal
+	use("mattn/vim-gist") -- Vim plugin for Gist
+	use("mattn/webapi-vim") -- Vim interface to Web API
 
 	-- DAP
 	use("mfussenegger/nvim-dap") -- Debug Adapter Protocol client implementation for Neovim

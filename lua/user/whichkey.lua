@@ -75,21 +75,21 @@ local m_opts = {
 local m_mappings = {
 	a = { "<cmd>BookmarkAnnotate<CR>", "Annotate" },
 	c = { "<cmd>BookmarkClear<CR>", "Clear" },
-	m = { "<cmd>BookmarkToggle<CR>", "Toggle" },
 	h = { '<cmd>lua require("harpoon.mark").add_file()<CR>', "Harpoon" },
 	j = { "<cmd>BookmarkNext<CR>", "Next" },
 	k = { "<cmd>BookmarkPrev<CR>", "Prev" },
+	m = { "<cmd>BookmarkToggle<CR>", "Toggle" },
 	s = { "<cmd>BookmarkShowAll<CR>", "Prev" },
 	-- s = {
 	--   "<cmd>lua require('telescope').extensions.vim_bookmarks.all({ hide_filename=false, prompt_title=\"bookmarks\", shorten_path=false })<CR>",
 	--   "Show",
 	-- },
-	x = { "<cmd>BookmarkClearAll<CR>", "Clear All" },
 	u = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>', "Harpoon UI" },
+	x = { "<cmd>BookmarkClearAll<CR>", "Clear All" },
 }
 
 local mappings = {
-	["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
+	["/"] = { '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', "Comment" },
 	["a"] = { "<cmd>Alpha<CR>", "Alpha" },
 	-- b = { "<cmd>lua require('user.bfs').open()<CR>", "Buffers" },
 	["b"] = {
@@ -97,50 +97,28 @@ local mappings = {
 		"Buffers",
 	},
 	["e"] = { "<cmd>NvimTreeToggle<CR>", "File Explorer" },
-	["w"] = { "<cmd>w<CR>", "Write" },
+	["h"] = { "<cmd>nohlsearch<CR>", "No HL" },
+	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<CR>", "Projects" },
 	["q"] = { "<cmd>q<CR>", "Quit" },
 	["Q"] = { "<cmd>q!<CR>", "Quit whitout save" },
-	["h"] = { "<cmd>nohlsearch<CR>", "No HL" },
+	["w"] = { "<cmd>w<CR>", "Write" },
 	["x"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<CR>", "Projects" },
 	["z"] = { "<cmd>ZenMode<CR>", "Zen" },
 	["gy"] = "Link",
 
-	c = { -- set foldmethod=manual
+	c = {
+		name = "Comment",
+		c = { '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', "Line-comment toggle" },
+		b = { '<cmd>lua require("Comment.api").toggle.blockwise.current()<CR>', "Block-comment toggle" },
+		O = { '<cmd>lua require("Comment.api").insert.linewise.above()<CR>', "Comment line above" },
+		o = { '<cmd>lua require("Comment.api").insert.linewise.below()<CR>', "Comment line below" },
+		A = { '<cmd>lua require("Comment.api").insert.linewise.eol()<CR>', "Comment at the end" },
+	},
+
+	C = { -- set foldmethod=manual
 		name = "Folding",
 		c = { "<Esc>zfi{", "Curly Braces" },
 		b = { "<Esc>zfi[", "Brackets" },
-	},
-
-	p = {
-		name = "Packer",
-		c = { "<cmd>PackerCompile<CR>", "Compile" },
-		i = { "<cmd>PackerInstall<CR>", "Install" },
-		s = { "<cmd>PackerSync<CR>", "Sync" },
-		S = { "<cmd>PackerStatus<CR>", "Status" },
-		u = { "<cmd>PackerUpdate<CR>", "Update" },
-	},
-
-	o = {
-		name = "Options",
-		w = { '<cmd>lua require("user.functions").toggle_option("wrap")<CR>', "Wrap" },
-		r = { '<cmd>lua require("user.functions").toggle_option("relativenumber")<CR>', "Relative" },
-		l = { '<cmd>lua require("user.functions").toggle_option("cursorline")<CR>', "Cursorline" },
-		s = { '<cmd>lua require("user.functions").toggle_option("spell")<CR>', "Spell" },
-		t = { '<cmd>lua require("user.functions").toggle_tabline()<CR>', "Tabline" },
-	},
-
-	s = {
-		name = "Split",
-		s = { "<cmd>split<CR>", "HSplit" },
-		v = { "<cmd>vsplit<CR>", "VSplit" },
-	},
-
-	r = {
-		name = "Replace",
-		r = { "<cmd>lua require('spectre').open()<CR>", "Replace" },
-		w = { "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Replace Word" },
-		f = { "<cmd>lua require('spectre').open_file_search()<CR>", "Replace Buffer" },
 	},
 
 	d = {
@@ -243,14 +221,45 @@ local mappings = {
 		u = { "<cmd>LuaSnipUnlinkCurrent<CR>", "Unlink Snippet" },
 	},
 
+	n = {
+		name = "Split",
+		s = { "<cmd>split<CR>", "HSplit" },
+		v = { "<cmd>vsplit<CR>", "VSplit" },
+	},
+
+	o = {
+		name = "Options",
+		w = { '<cmd>lua require("user.functions").toggle_option("wrap")<CR>', "Wrap" },
+		r = { '<cmd>lua require("user.functions").toggle_option("relativenumber")<CR>', "Relative" },
+		l = { '<cmd>lua require("user.functions").toggle_option("cursorline")<CR>', "Cursorline" },
+		s = { '<cmd>lua require("user.functions").toggle_option("spell")<CR>', "Spell" },
+		t = { '<cmd>lua require("user.functions").toggle_tabline()<CR>', "Tabline" },
+	},
+
+	p = {
+		name = "Packer",
+		c = { "<cmd>PackerCompile<CR>", "Compile" },
+		i = { "<cmd>PackerInstall<CR>", "Install" },
+		s = { "<cmd>PackerSync<CR>", "Sync" },
+		S = { "<cmd>PackerStatus<CR>", "Status" },
+		u = { "<cmd>PackerUpdate<CR>", "Update" },
+	},
+
+	r = {
+		name = "Replace",
+		r = { "<cmd>lua require('spectre').open()<CR>", "Replace" },
+		w = { "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Replace Word" },
+		f = { "<cmd>lua require('spectre').open_file_search()<CR>", "Replace Buffer" },
+	},
+
 	-- s = {
-	--   name = "Surround",
-	--   ["."] = { "<cmd>lua require('surround').repeat_last()<CR>", "Repeat" },
-	--   a = { "<cmd>lua require('surround').surround_add(true)<CR>", "Add" },
-	--   d = { "<cmd>lua require('surround').surround_delete()<CR>", "Delete" },
-	--   r = { "<cmd>lua require('surround').surround_replace()<CR>", "Replace" },
-	--   q = { "<cmd>lua require('surround').toggle_quotes()<CR>", "Quotes" },
-	--   b = { "<cmd>lua require('surround').toggle_brackets()<CR>", "Brackets" },
+	-- 	name = "Surround",
+	-- 	["."] = { "<cmd>lua require('surround').repeat_last()<CR>", "Repeat" },
+	-- 	a = { "<cmd>lua require('surround').surround_add(true)<CR>", "Add" },
+	-- 	d = { "<cmd>lua require('surround').surround_delete()<CR>", "Delete" },
+	-- 	r = { "<cmd>lua require('surround').surround_replace()<CR>", "Replace" },
+	-- 	q = { "<cmd>lua require('surround').toggle_quotes()<CR>", "Quotes" },
+	-- 	b = { "<cmd>lua require('surround').toggle_brackets()<CR>", "Brackets" },
 	-- },
 
 	S = {
@@ -301,8 +310,8 @@ local vopts = {
 	nowait = true, -- use `nowait` when creating keymaps
 }
 local vmappings = {
-	["/"] = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment" },
-	s = { "<esc><cmd>'<,'>SnipRun<CR>", "Run range" },
+	["/"] = { '<Esc><cmd>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', "Comment" },
+	s = { "<Esc><cmd>'<,'>SnipRun<CR>", "Run range" },
 }
 
 which_key.setup(setup)
