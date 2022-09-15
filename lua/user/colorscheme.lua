@@ -19,6 +19,7 @@ if colorscheme == "gruvbox" or colorscheme == "gruvbox-material" then
 	end
 else
   vim.cmd([[highlight Comment guifg=#9EA0AA]])
+  vim.cmd([[highlight NonText guifg=#50545d]])
 end
 
 ---------------------------------------------------
