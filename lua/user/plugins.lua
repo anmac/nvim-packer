@@ -91,6 +91,7 @@ return packer.startup(function(use)
 	-- snippets
 	use("L3MON4D3/LuaSnip") --snippet engine
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
+  use("heavenshell/vim-jsdoc") -- Generate JSDoc to your JavaScript code
 
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
@@ -137,6 +138,14 @@ return packer.startup(function(use)
 
 	-- Rust
 	-- use "simrat39/rust-tools.nvim" -- Tools for better development in rust using neovim's builtin lsp
+
+	-- Markdown
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	})
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
