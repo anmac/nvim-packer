@@ -10,6 +10,7 @@ local options = {
   hlsearch = true,                         -- highlight all matches on previous search pattern
   ignorecase = true,                       -- ignore case in search patterns
   mouse = "a",                             -- allow the mouse to be used in neovim
+  mousemoveevent = true,
   pumheight = 12,                          -- pop up menu height
   showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
   showtabline = 2,                         -- always show tabs
@@ -51,7 +52,7 @@ end
 vim.opt.shortmess:append("c")
 vim.opt.whichwrap:append("<,>,[,],h,l") -- vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.opt.iskeyword:append("-") -- vim.cmd([[set iskeyword+=-]])
-vim.cmd([[set lcs=eol:↲,tab:··,space:·,multispace:·,trail:·,nbsp:☠]]) -- ●•∙↲
+vim.cmd([[set lcs=eol:↲,tab:··,space:·,multispace:·,trail:·,nbsp:☠]]) -- ●•∙⋅↲
 -- vim.opt.formatoptions:remove("cro") -- vim.cmd([[set formatoptions-=cro]])
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1

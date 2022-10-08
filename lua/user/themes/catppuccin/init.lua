@@ -3,10 +3,7 @@ vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha | Has to b
 require("catppuccin").setup({
 	transparent_background = false,
 	term_colors = true,
-	compile = {
-		enabled = true,
-		path = vim.fn.stdpath("cache") .. "/catppuccin",
-	},
+	compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
 	styles = {
 		comments = { "italic" },
 		conditionals = { "italic" },
@@ -16,13 +13,25 @@ require("catppuccin").setup({
 		strings = {},
 		variables = { "bold" },
 		numbers = {},
-		booleans = {},
+		booleans = { "bold" },
 		properties = { "bold" },
 		types = { "bold" },
 		operators = {},
 	},
 	integrations = {
-		treesitter = false,
+		dap = {
+			enabled = true,
+			enable_ui = true,
+		},
+    illuminate = true,
+		indent_blankline = {
+			enabled = true,
+      colored_indent_levels = true,
+		},
+		treesitter = true,
+		treesitter_context = true,
+		ts_rainbow = true,
+    markdown = true,
 		native_lsp = {
 			enabled = true,
 			virtual_text = {
@@ -38,14 +47,10 @@ require("catppuccin").setup({
 				information = { "underline" },
 			},
 		},
-		dap = {
+		navic = {
 			enabled = true,
-			enable_ui = true,
+			custom_bg = "NONE",
 		},
 		which_key = true,
-		indent_blankline = {
-			enabled = false,
-		},
-		ts_rainbow = true,
 	},
 })

@@ -1,4 +1,4 @@
-local colorscheme = "catppuccin"
+local colorscheme = "synthwave84"
 
 local status_config_theme_ok, _ = pcall(require, "user.themes." .. colorscheme)
 if not status_config_theme_ok then
@@ -20,6 +20,7 @@ if colorscheme == "gruvbox" or colorscheme == "gruvbox-material" then
 else
   vim.cmd([[highlight Comment guifg=#9EA0AA]])
   vim.cmd([[highlight NonText guifg=#50545d]])
+  vim.cmd([[highlight Visual cterm=bold gui=bold guibg=#264f78]])
 end
 
 ---------------------------------------------------
@@ -36,3 +37,4 @@ end
 -- moonlight
 -- onenord
 -- catppuccin
+-- synthwave84

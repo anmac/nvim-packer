@@ -19,6 +19,7 @@ configs.setup({
 	highlight = {
 		enable = true, -- false will disable the whole extension
 		disable = { "css", "markdown" }, -- list of language that will be disabled
+		additional_vim_regex_highlighting = false,
 	},
 	indent = { enable = true, disable = { "python", "css", "yaml" } },
 	context_commentstring = {
@@ -52,8 +53,8 @@ configs.setup({
 	},
 	rainbow = {
 		enable = true,
-		-- disable = { "html" },
-		extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+		disable = { "html" },
+		extended_mode = false, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
 		max_file_lines = nil, -- Do not enable for files with more than n lines, int
 		-- colors = {
 		-- 	"Gold",
@@ -70,7 +71,7 @@ configs.setup({
 	matchup = {
 		enable = true, -- mandatory, false will disable the whole extension
 		disable_virtual_text = true,
-		-- disable = { "html" }, -- optional, list of language that will be disabled
+		disable = { "html" }, -- optional, list of language that will be disabled
 		include_match_words = false,
 		matchup_matchparen_enabled = false, -- To disable match highlighting at startup set 0
 		matchup_matchparen_offscreen = { method = nil },

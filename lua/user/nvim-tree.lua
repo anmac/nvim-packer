@@ -12,6 +12,7 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup({
 	hijack_cursor = true,
+  open_on_setup = true,
 	reload_on_bufenter = true,
 	ignore_ft_on_setup = {
 		"startify",
@@ -21,7 +22,6 @@ nvim_tree.setup({
 	},
 	view = {
 		width = 30,
-		-- height = 30,
 		hide_root_folder = false,
 		side = "left",
 		mappings = {
@@ -63,8 +63,8 @@ nvim_tree.setup({
 				symlink = "",
 				bookmark = "",
 				folder = {
+          arrow_closed = "",
 					arrow_open = "",
-					arrow_closed = "",
 					default = "", -- 
 					open = "", -- 
 					empty = "",
@@ -79,13 +79,14 @@ nvim_tree.setup({
 					renamed = "➜",
 					untracked = "U", -- ✗
 					deleted = "",
-					ignored = "◌",
+					ignored = "", -- ◌
 				},
 			},
 		},
 	},
 	diagnostics = {
 		enable = true,
+    show_on_dirs = false,
 		icons = {
 			hint = "",
 			info = "",
