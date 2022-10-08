@@ -25,7 +25,7 @@ gitsigns.setup({
 		delay = 100,
 		ignore_whitespace = false,
 	},
-  current_line_blame_formatter = "<author>, <author_time:%R> - <summary>",
+  current_line_blame_formatter = " <author>, <author_time:%R> - <summary>",
 	preview_config = {
 		border = "rounded",
 		style = "minimal",

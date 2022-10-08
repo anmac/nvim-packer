@@ -30,6 +30,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif")
+-- vim.cmd("autocmd ModeChanged [vV\x16]*:* hi illuminatedWord guifg=NONE guibg=NONE")
 
 -- Fixes Autocomment
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
@@ -55,5 +56,15 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
 	callback = function()
 		vim.cmd("hi link illuminatedWord LspReferenceText")
+	end,
+})
+
+-- Matchup highlighting colors
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+	callback = function()
+		vim.cmd([[
+      hi MatchParen guifg=#fab387 cterm=italic gui=italic
+      hi MatchWord cterm=bold gui=bold guifg=NONE guibg=NONE
+    ]])
 	end,
 })

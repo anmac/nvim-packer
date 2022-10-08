@@ -39,4 +39,6 @@ illuminate.configure({
 		"toggleterm",
 		"",
 	},
+	modes_denylist = { "Visual", "visual" },
+	under_cursor = true,
 })

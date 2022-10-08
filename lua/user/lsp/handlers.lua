@@ -60,6 +60,11 @@ local function lsp_highlight_document(client)
 	illuminate.on_attach(client)
 end
 
+local status_navic_ok, navic = pcall(require, "nvim-navic")
+if not status_navic_ok then
+	return
+end
+
 local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = true }
 	local keymap = vim.api.nvim_buf_set_keymap
@@ -69,7 +74,7 @@ local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 	keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-	keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+	keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
 	keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<CR>", opts)
 	keymap(bufnr, "n", "<leader>lI", "<cmd>LspInstallInfo<CR>", opts)
 	keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
@@ -81,29 +86,37 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
+	lsp_highlight_document(client)
 	lsp_keymaps(bufnr)
-  lsp_highlight_document(client)
+
+	if client.server_capabilities.documentSymbolProvider then
+		navic.attach(client, bufnr)
+	end
 
 	if client.name == "jdt.ls" then
 		if JAVA_DAP_ACTIVE then
 			require("jdtls").setup_dap({ hotcodereplace = "auto" })
 			require("jdtls.dap").setup_dap_main_class_configs()
 		end
-		client.resolved_capabilities.document_formatting = false
-		client.resolved_capabilities.textDocument.completion.completionItem.snippetSupport = false
+		client.server_capabilities.document_formatting = false
+		client.server_capabilities.textDocument.completion.completionItem.snippetSupport = false
 		-- vim.lsp.codelens.refresh()
 	end
 
 	if client.name == "html" then
-		client.resolved_capabilities.document_formatting = false
+		client.server_capabilities.documentFormattingProvider = false
 	end
 
 	if client.name == "tsserver" then
-		client.resolved_capabilities.document_formatting = false
+		client.server_capabilities.documentFormattingProvider = false
+	end
+
+	if client.name == "jsonls" then
+		client.server_capabilities.documentFormattingProvider = false
 	end
 
 	if client.name == "sumneko_lua" then
-		client.resolved_capabilities.document_formatting = false
+		client.server_capabilities.documentFormattingProvider = false
 	end
 end
 

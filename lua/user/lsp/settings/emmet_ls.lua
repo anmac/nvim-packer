@@ -21,5 +21,6 @@ return {
 		"sss",
 		"hbs",
 		"handlebars",
+		"php",
 	},
 }

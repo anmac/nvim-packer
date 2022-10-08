@@ -121,7 +121,7 @@ local mappings = {
 		b = { "<Esc>zfi[", "Brackets" },
 	},
 
-	d = {
+	D = {
 		name = "Debug",
 		b = { "<cmd>lua require'dap'.toggle_breakpoint()<CR>", "Breakpoint" },
 		c = { "<cmd>lua require'dap'.continue()<CR>", "Continue" },
@@ -195,7 +195,7 @@ local mappings = {
 			"<cmd>Telescope lsp_workspace_diagnostics<CR>",
 			"Workspace Diagnostics",
 		},
-		f = { "<cmd>lua vim.lsp.buf.formatting({ async = true })<CR>", "Format" },
+		f = { "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", "Format" },
 		F = { "<cmd>LspToggleAutoFormat<CR>", "Toggle Autoformat" },
 		i = { "<cmd>LspInfo<CR>", "Info" },
 		I = { "<cmd>LspInstallInfo<CR>", "Installer Info" },
@@ -313,7 +313,8 @@ local vopts = {
 	nowait = true, -- use `nowait` when creating keymaps
 }
 local vmappings = {
-	["/"] = { '<Esc><cmd>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', "Comment" },
+	["/"] = { "<Esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", "Comment" },
+	["\\"] = { "<Esc><cmd>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<CR>", "Comment" },
 	s = { "<Esc><cmd>'<,'>SnipRun<CR>", "Run range" },
 }
 

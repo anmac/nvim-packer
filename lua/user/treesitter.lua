@@ -24,11 +24,36 @@ configs.setup({
 	context_commentstring = {
 		enable = true,
 		enable_autocmd = false,
+		config = {
+			typescript = { __default = "// %s", __multiline = "/* %s */" },
+			tsx = {
+				__default = "// %s",
+				__multiline = "/* %s */",
+				jsx_element = "{/* %s */}",
+				jsx_fragment = "{/* %s */}",
+				jsx_attribute = { __default = "// %s", __multiline = "/* %s */" },
+				comment = { __default = "// %s", __multiline = "/* %s */" },
+				call_expression = { __default = "// %s", __multiline = "/* %s */" },
+				statement_block = { __default = "// %s", __multiline = "/* %s */" },
+				spread_element = { __default = "// %s", __multiline = "/* %s */" },
+			},
+			javascript = {
+				__default = "// %s",
+				__multiline = "/* %s */",
+				jsx_element = "{/* %s */}",
+				jsx_fragment = "{/* %s */}",
+				jsx_attribute = { __default = "// %s", __multiline = "/* %s */" },
+				comment = { __default = "// %s", __multiline = "/* %s */" },
+				call_expression = { __default = "// %s", __multiline = "/* %s */" },
+				statement_block = { __default = "// %s", __multiline = "/* %s */" },
+				spread_element = { __default = "// %s", __multiline = "/* %s */" },
+			},
+		},
 	},
 	rainbow = {
 		enable = true,
-		disable = { "html" },
-		extended_mode = false, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+		-- disable = { "html" },
+		extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
 		max_file_lines = nil, -- Do not enable for files with more than n lines, int
 		-- colors = {
 		-- 	"Gold",
@@ -38,5 +63,19 @@ configs.setup({
 		-- 	"Salmon",
 		-- 	"LawnGreen",
 		-- },
+	},
+	playground = {
+		enable = true,
+	},
+	matchup = {
+		enable = true, -- mandatory, false will disable the whole extension
+		disable_virtual_text = true,
+		-- disable = { "html" }, -- optional, list of language that will be disabled
+		include_match_words = false,
+		matchup_matchparen_enabled = false, -- To disable match highlighting at startup set 0
+		matchup_matchparen_offscreen = { method = nil },
+		matchup_surround_enabled = true,
+		loaded_matchit = true, -- you may see a very slight start-up time improvement
+		matchup_matchparen_fallback = true, -- Will highlight matchpairs such as (), [], & {}
 	},
 })

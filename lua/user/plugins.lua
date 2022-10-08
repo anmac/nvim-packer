@@ -58,20 +58,20 @@ return packer.startup(function(use)
 	use("antoinemadec/FixCursorHold.nvim") -- Fix CursorHold Performance. This is needed to fix lsp doc highlight
 	use("folke/which-key.nvim") -- Display a popup with possible keybindings
 	use("folke/zen-mode.nvim") -- 🧘 Distraction-free coding for Neovim
-	-- use({ "christianchiarulli/nvim-gps", branch = "text_hl" })
 	use("SmiteshP/nvim-navic") -- Simple plugin that shows your current code context
 
 	-- Colorschemes
 	use("lunarvim/darkplus.nvim")
 	use("folke/tokyonight.nvim")
 	use("tiagovla/tokyodark.nvim")
-	use("morhetz/gruvbox")
+	use("ellisonleao/gruvbox.nvim")
 	use("sainnhe/gruvbox-material")
 	use("rose-pine/neovim")
 	use("olimorris/onedarkpro.nvim")
 	use("bluz71/vim-nightfly-guicolors")
 	use("shaunsingh/moonlight.nvim")
 	use("rmehri01/onenord.nvim")
+	use("lunarvim/synthwave84.nvim")
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
@@ -82,16 +82,22 @@ return packer.startup(function(use)
 	use("hrsh7th/nvim-cmp") -- The completion plugin
 	use("hrsh7th/cmp-buffer") -- buffer completions
 	use("hrsh7th/cmp-path") -- path completions
-	use("saadparwaiz1/cmp_luasnip") -- snippet completions
+	use("hrsh7th/cmp-cmdline") -- cmdline completions
 	use("hrsh7th/cmp-nvim-lsp") -- source for neovim builtin LSP client
 	use("hrsh7th/cmp-nvim-lua") -- source for neovim for nvim lua
-	-- use "hrsh7th/cmp-cmdline" -- cmdline completions
-	-- use "hrsh7th/cmp-emoji" -- source for emoji
+	use("hrsh7th/cmp-emoji") -- source for emoji
+	use("ray-x/cmp-treesitter") -- cmp source for treesitter
+	use("onsails/lspkind.nvim") -- vscode-like pictograms for neovim lsp completion items
+	use("saadparwaiz1/cmp_luasnip") -- snippet completions
 
 	-- snippets
 	use("L3MON4D3/LuaSnip") --snippet engine
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
-  use("heavenshell/vim-jsdoc") -- Generate JSDoc to your JavaScript code
+	use("heavenshell/vim-jsdoc") -- Generate JSDoc to your JavaScript code
+	use({ -- Generate proper code documentation skeletons with a single keypress
+		"kkoomen/vim-doge",
+		run = ":call doge#install()",
+	})
 
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
@@ -113,10 +119,13 @@ return packer.startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
+	use("nvim-treesitter/nvim-tree-docs") -- Code documentation built with treesitter
+	use("nvim-treesitter/nvim-treesitter-context") -- Show code context
 	use("JoosepAlviste/nvim-ts-context-commentstring") -- setting the commentstring based on the cursor location in a file
-	use("p00f/nvim-ts-rainbow")
+	use("p00f/nvim-ts-rainbow") -- Rainbow parentheses for neovim using tree-sitter. https://sr.ht/~p00f/nvim-ts-rainbow preferred
 	use("windwp/nvim-ts-autotag") -- Autopairs, integrates with both cmp and treesitter
 	use("nvim-treesitter/playground") -- Treesitter playground integrated into Neovim
+	use("andymass/vim-matchup") -- vim match-up: even better % fist_oncoming navigate and highlight matching words fist_oncoming modern matchit and matchparen
 	use({
 		"kylechui/nvim-surround", -- Add/change/delete surrounding delimiter pairs with ease
 		tag = "*", -- Use for stability; omit to use `main` branch for the latest features

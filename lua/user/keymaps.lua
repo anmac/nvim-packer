@@ -107,7 +107,7 @@ keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>x", ":Bdelete!<CR>", opts)
 
 -- LSP
-keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting({ async = true })<CR>", opts)
+keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
 keymap("n", "<leader>li", "<cmd>LspInfo<CR>", opts)
 keymap("n", "<leader>lI", "<cmd>LspInstallInfo<CR>", opts)
 keymap("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
