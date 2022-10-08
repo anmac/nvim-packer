@@ -3,65 +3,80 @@
 -- or go here and upload the font file: https://mathew-kurian.github.io/CharacterMap/
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
-vim.g.use_nerd_icons = false
-if vim.fn.has("mac") == 1 or vim.g.use_nerd_icons then
-	return {
-		kind_icons = {
-			Class = " ", -- 
-			Color = " ", -- 
-			Constant = " ", -- 
-			Constructor = " ", --  
-			Enum = "了 ", -- 
-			EnumMember = " ",
-			Event = " ",
-			Field = " ", -- 
-			File = " ",
-			Folder = " ", -- 
-			Function = " ", --  
-			Interface = " ", -- ﰮ
-			Keyword = " ",
-			Method = " ", -- m
-			Module = " ", -- 
-			Operator = " ",
-			Property = " ",
-			Reference = " ",
-			Snippet = " ", -- 
-			Struct = " ",
-			Text = " ",
-			TypeParameter = " ", -- 
-			Unit = " ",
-			Value = " ",
-			Variable = " ", -- 
-		},
-	}
-else
-	return {
-		vscode_icons = {
-			Text = "",
-			Method = "",
-			Function = "",
-			Constructor = "",
-			Field = "",
-			Variable = "",
-			Class = "",
-			Interface = "",
-			Module = "",
-			Property = "",
-			Unit = "",
-			Value = "",
-			Enum = "",
-			Keyword = "",
-			Snippet = "",
-			Color = "",
-			File = "",
-			Reference = "",
-			Folder = "",
-			EnumMember = "",
-			Constant = "",
-			Struct = "",
-			Event = "",
-			Operator = "",
-			TypeParameter = "",
-		},
-	}
-end
+-- vim.g.use_nerd_icons = false
+-- vim.fn.has("mac") == 1 or vim.g.use_nerd_icons then
+
+return {
+	kind_icons = {
+		Array = " ",
+		Boolean = "◩ ",
+		Class = " ", -- 
+		Color = " ", -- 
+		Constant = " ", -- 
+		Constructor = " ", --  
+		Enum = "了 ", -- 
+		EnumMember = " ",
+		Event = " ",
+		Field = " ", -- 
+		File = " ",
+		Folder = " ", -- 
+		Function = " ", --  
+		Interface = " ", -- ﰮ
+		Key = " ",
+		Keyword = " ",
+		Method = " ", -- m
+		Module = " ", -- 
+		Namespace = " ",
+		Null = "ﳠ ",
+		Number = " ",
+		Object = " ",
+		Operator = " ",
+		Package = " ",
+		Property = " ",
+		Reference = " ",
+		Snippet = " ", -- 
+		String = " ",
+		Struct = " ",
+		Text = " ",
+		TypeParameter = " ", -- 
+		Unit = " ",
+		Value = " ",
+		Variable = " ", -- 
+	},
+	vscode_icons = {
+		Array = " ",
+		Boolean = "◩ ",
+		Class = " ",
+		Color = " ",
+		Constant = " ",
+		Constructor = " ",
+		Enum = " ",
+		EnumMember = " ",
+		Event = " ",
+		Field = " ",
+		File = " ",
+		Folder = " ",
+		Function = " ",
+		Interface = " ",
+		Key = " ",
+		Keyword = " ",
+		Method = " ",
+		Module = " ",
+		Namespace = " ",
+		Null = "ﳠ ",
+		Number = " ",
+		Object = " ",
+		Operator = " ",
+		Package = " ",
+		Property = " ",
+		Reference = " ",
+		Snippet = " ",
+		String = " ",
+		Struct = " ",
+		Text = " ",
+		TypeParameter = " ",
+		Unit = " ",
+		Value = " ",
+		Variable = " ",
+	},
+}

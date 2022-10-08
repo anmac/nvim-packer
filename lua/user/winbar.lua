@@ -63,7 +63,7 @@ local get_gps = function()
 	end
 
 	if not require("user.functions").isempty(gps_location) then
-		return ">" .. " " .. gps_location
+		return "" .. " " .. gps_location
 	else
 		return ""
 	end
