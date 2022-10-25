@@ -8,11 +8,11 @@ if not status_theme_ok then
 	return
 end
 
--- vim.api.nvim_set_hl(0, "SLGitIcon", { fg = "#D16969", bg = "#303030" })
+local i = require("user.icons")
+local istatus = i.git.status
+
 vim.api.nvim_set_hl(0, "SLGitIcon", { fg = "#D16969" })
--- vim.api.nvim_set_hl(0, "SLBranchName", { fg = "#DFAFDF", bg = "#303030", bold = false })
 vim.api.nvim_set_hl(0, "SLBranchName", { fg = "#DFAFDF" })
--- vim.api.nvim_set_hl(0, "SLProgress", { fg = "#D4D4D4", bg = "#303030" })
 vim.api.nvim_set_hl(0, "SLProgress", { fg = "#D4D4D4" })
 vim.api.nvim_set_hl(0, "SLSeparator", { fg = "#808080", bg = "#252525" })
 local mode_color = {
@@ -46,18 +46,18 @@ local mode = {
 }
 
 local hide_section_in_width = function()
-	return vim.fn.winwidth(0) > 80
+	return vim.fn.winwidth(0) > 50
 end
 
 local hide_git_in_width = function()
-	return vim.fn.winwidth(0) > 70
+	return vim.fn.winwidth(0) > 50
 end
 
 local diagnostics = {
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
 	sections = { "error", "warn", "hint" },
-	symbols = { error = " ", warn = " ", hint = " " },
+	symbols = { error = i.diagnostics.Error, warn = i.diagnostics.Warning, hint = i.diagnostics.Hint },
 	colored = true,
 	update_in_insert = true,
 	always_visible = true,
@@ -66,7 +66,7 @@ local diagnostics = {
 local diff = {
 	"diff",
 	colored = true,
-	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+	symbols = { added = istatus.Add, modified = istatus.Mod, removed = istatus.Remove }, -- changes diff symbols
 	cond = hide_git_in_width,
 	-- separator = "%#SLSeparator#" .. "│ " .. "%*",
 }
@@ -85,7 +85,7 @@ local filetype = {
 local branch = {
 	"branch",
 	icons_enabled = true,
-	icon = "%#SLGitIcon#" .. "" .. "%*" .. "%#SLBranchName#",
+	icon = "%#SLGitIcon#" .. istatus.Branch .. "%*" .. "%#SLBranchName#",
 	colored = true,
 }
 
@@ -142,7 +142,7 @@ lualine.setup({
 		globalstatus = true,
 		icons_enabled = true,
 		theme = theme,
-		component_separators = { left = "", right = "│" },
+		component_separators = { left = "", right = i.ui_v1.Separator },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "dashboard" },
 		always_divide_middle = true,

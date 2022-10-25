@@ -44,7 +44,8 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	use("numToStr/Comment.nvim") -- Easily comment stuff
-	use("norcalli/nvim-colorizer.lua") -- The fastest Neovim colorizer
+	use("NvChad/nvim-colorizer.lua") -- Maintained fork of the fastest Neovim colorizer
+	use({ "nvim-colortils/colortils.nvim", cmd = "Colortils" }) -- Some color utils for neovim
 	use("kyazdani42/nvim-web-devicons") -- Devicons for Neovim
 	use("kyazdani42/nvim-tree.lua") -- A file explorer tree
 	use("akinsho/bufferline.nvim") -- A snazzy bufferline for Neovim
@@ -56,9 +57,10 @@ return packer.startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim") -- Indent guides for Neovim
 	use("goolord/alpha-nvim") -- A lua powered greeter like vim-startify / dashboard-nvim
 	use("antoinemadec/FixCursorHold.nvim") -- Fix CursorHold Performance. This is needed to fix lsp doc highlight
+	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" }) -- Not UFO in the sky, but an ultra fold in Neovim.
 	use("folke/which-key.nvim") -- Display a popup with possible keybindings
+	use("rcarriga/nvim-notify") -- A fancy, configurable, notification manager for NeoVim
 	use("folke/zen-mode.nvim") -- 🧘 Distraction-free coding for Neovim
-	use("SmiteshP/nvim-navic") -- Simple plugin that shows your current code context
 
 	-- Colorschemes
 	use("lunarvim/darkplus.nvim")
@@ -101,10 +103,15 @@ return packer.startup(function(use)
 
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
-	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
+	use("williamboman/mason.nvim") -- Easily install and manage LSP servers, DAP servers, linters, and formatters.
+	use("williamboman/mason-lspconfig.nvim") -- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 	use("ray-x/lsp_signature.nvim") -- LSP signature hint as you type
+	use("SmiteshP/nvim-navic") -- Simple plugin that shows your current code context
+	use("b0o/SchemaStore.nvim") -- JSON schemas for Neovim
 	use("RRethy/vim-illuminate") -- highlighting other uses of the word under the cursor. Use LSP for intelligent hl
+	use("j-hui/fidget.nvim") -- Standalone UI for nvim-lsp progress
+	use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
 	-- use "github/copilot.vim"
 	-- use {
 	-- "zbirenbaum/copilot-cmp",
@@ -113,6 +120,12 @@ return packer.startup(function(use)
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim") -- Find, Filter, Preview, Pick. All lua, all the time.
+	use({ -- FZF sorter for telescope written in c
+		"nvim-telescope/telescope-fzf-native.nvim",
+		run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+	})
+	use("nvim-telescope/telescope-media-files.nvim") -- Telescope extension to preview media files using Ueberzug
+	use("nvim-telescope/telescope-project.nvim")
 
 	-- Treesitter
 	use({

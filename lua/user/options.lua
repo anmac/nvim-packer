@@ -4,13 +4,12 @@ local options = {
   cmdheight = 1,                           -- more space in the neovim command line for displaying messages
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
   conceallevel = 0,                        -- so that `` is visible in markdown files
-  -- colorcolumn = "80",
-  -- colorcolumn = "120",
+  -- colorcolumn = "120", -- 80               --
   fileencoding = "utf-8",                  -- the encoding written to a file
   hlsearch = true,                         -- highlight all matches on previous search pattern
   ignorecase = true,                       -- ignore case in search patterns
   mouse = "a",                             -- allow the mouse to be used in neovim
-  mousemoveevent = true,
+  mousemoveevent = true,                   -- mouse move events are delivered to the input queue and are available for mapping
   pumheight = 12,                          -- pop up menu height
   showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
   showtabline = 2,                         -- always show tabs
@@ -28,21 +27,24 @@ local options = {
   shiftwidth = 2,                          -- the number of spaces inserted for each indentation
   tabstop = 2,                             -- insert 2 spaces for a tab
   cursorline = true,                       -- highlight the current line
+  cursorcolumn = false,                    -- highlight the current column
   number = true,                           -- set numbered lines
-  laststatus = 3,
+  laststatus = 3,                          -- when the last window will have a status line
   showcmd = true,
   ruler = false,
-  -- relativenumber = true,                  -- set relative numbered lines
-  numberwidth = 4,                         -- set number column width to 2 {default 4}
+  relativenumber = false,                  -- set relative numbered lines
+  numberwidth = 5,                         -- set number column width to 2 {default 4}
   signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
   wrap = false,                            -- display lines as one long line
   scrolloff = 5,                           -- is one of my fav
   sidescrolloff = 5,
-  -- guifont = "monospace:h17",               -- the font used in graphical neovim applications
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
   foldenable = true,
   foldmethod = "manual",
-  list = true,
+  foldcolumn = "1",                        -- When and how to draw the foldcolumn.
+  foldlevel = 99,
+  foldlevelstart = 99,
+  list = true,                             -- enable to show tabs, spaces, eol, etc.
 }
 
 for key, value in pairs(options) do
@@ -52,8 +54,8 @@ end
 vim.opt.shortmess:append("c")
 vim.opt.whichwrap:append("<,>,[,],h,l") -- vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.opt.iskeyword:append("-") -- vim.cmd([[set iskeyword+=-]])
-vim.cmd([[set lcs=eol:↲,tab:··,space:·,multispace:·,trail:·,nbsp:☠]]) -- ●•∙⋅↲
 -- vim.opt.formatoptions:remove("cro") -- vim.cmd([[set formatoptions-=cro]])
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.opt.fillchars.eob = " "
+vim.opt.listchars = [[eol:↲,tab:··,lead:·,leadmultispace:∙,space: ,multispace: ,trail:·]]
+vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]

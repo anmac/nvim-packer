@@ -7,12 +7,30 @@ local actions = require("telescope.actions")
 
 telescope.setup({
 	defaults = {
-
 		prompt_prefix = "🔭 ", -- 
 		selection_caret = " ",
 		path_display = { "smart" },
-		file_ignore_patterns = { ".git/", "node_modules/", "target/", "docs/", ".settings/" },
-
+		file_ignore_patterns = {
+			".git/",
+			".github/",
+			"node_modules/",
+			"target/",
+			"docs/",
+			"env/",
+			"vendor/*",
+			".idea/",
+			".settings/",
+			".vscode/",
+			"%.lock",
+			"%.sqlite3",
+			"%.ipynb",
+			"%.svg",
+			"%.otf",
+			"%.ttf",
+			"%.webp",
+			"__pycache__/*",
+			".dart_tool/",
+		},
 		mappings = {
 			i = {
 				["<C-n>"] = actions.cycle_history_next,
@@ -80,4 +98,56 @@ telescope.setup({
 			},
 		},
 	},
+	pickers = {
+		live_grep = {
+			theme = "dropdown",
+		},
+		grep_string = {
+			theme = "dropdown",
+		},
+		find_files = {
+			theme = "dropdown",
+			previewer = false,
+		},
+		buffers = {
+			theme = "dropdown",
+			previewer = false,
+			initial_mode = "normal",
+		},
+		planets = {
+			show_pluto = true,
+			show_moon = true,
+		},
+		colorscheme = {
+			-- enable_preview = true,
+		},
+		lsp_references = {
+			theme = "dropdown",
+			initial_mode = "normal",
+		},
+		lsp_definitions = {
+			theme = "dropdown",
+			initial_mode = "normal",
+		},
+		lsp_declarations = {
+			theme = "dropdown",
+			initial_mode = "normal",
+		},
+		lsp_implementations = {
+			theme = "dropdown",
+			initial_mode = "normal",
+		},
+	},
+	extensions = {
+		media_files = {
+			-- filetypes whitelist
+			-- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+			filetypes = { "png", "webp", "jpg", "jpeg" },
+			find_cmd = "rg", -- find command (defaults to `fd`)
+		},
+	},
 })
+
+telescope.load_extension("fzf")
+telescope.load_extension("project")
+telescope.load_extension("media_files")

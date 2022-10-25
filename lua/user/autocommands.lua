@@ -1,6 +1,6 @@
 -- Use 'q' to quit from common plugins
 vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir", "DressingSelect" },
+	pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir", "DressingSelect", "tsplayground" },
 	callback = function()
 		vim.cmd([[
       nnoremap <silent> <buffer> q :close<CR> 
@@ -17,6 +17,15 @@ vim.api.nvim_create_autocmd({ "User" }, {
       set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
       set laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
     ]])
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+	pattern = { "term://*" },
+	callback = function()
+		vim.cmd("startinsert!")
+		-- TODO: if java = 2
+		vim.cmd("set cmdheight=1")
 	end,
 })
 
@@ -53,11 +62,11 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	end,
 })
 
-vim.api.nvim_create_autocmd({ "VimEnter" }, {
-	callback = function()
-		vim.cmd("hi link illuminatedWord LspReferenceText")
-	end,
-})
+-- vim.api.nvim_create_autocmd({ "VimEnter" }, {
+-- 	callback = function()
+-- 		vim.cmd("hi link illuminatedWord LspReferenceText")
+-- 	end,
+-- })
 
 -- Matchup highlighting colors
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {

@@ -13,14 +13,18 @@ bufferline.setup({
 			style = "icon",
 		},
 		close_icon = "", -- 
-		max_name_length = 30,
-		max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
-		tab_size = 21,
+		max_name_length = 18,
+		-- max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
+		truncate_names = true,
+		diagnostics = "nvim_lsp",
+		diagnostics_update_in_insert = false,
+		diagnostics_indicator = function(count)
+			return "" .. count .. ""
+		end,
 		offsets = {
 			{ filetype = "NvimTree", text = "File Explorer", highlight = "Directory", separator = true, padding = 1 },
 		},
 		separator_style = "thin", -- | "slant" | "thick" | "thin" | { 'any', 'any' },
-		show_tab_indicators = true,
 		hover = {
 			enabled = true,
 			delay = 50,
@@ -29,4 +33,31 @@ bufferline.setup({
 		sort_by = "insert_at_end",
 	},
 	highlights = require("catppuccin.groups.integrations.bufferline").get(),
+	-- custom_areas = {
+	-- 	right = function()
+	-- 		local result = {}
+	-- 		local seve = vim.diagnostic.severity
+	-- 		local error = #vim.diagnostic.get(0, { severity = seve.ERROR })
+	-- 		local warning = #vim.diagnostic.get(0, { severity = seve.WARN })
+	-- 		local info = #vim.diagnostic.get(0, { severity = seve.INFO })
+	-- 		local hint = #vim.diagnostic.get(0, { severity = seve.HINT })
+
+	-- 		if error ~= 0 then
+	-- 			table.insert(result, { text = "  " .. error, fg = "#EC5241" })
+	-- 		end
+
+	-- 		if warning ~= 0 then
+	-- 			table.insert(result, { text = "  " .. warning, fg = "#EFB839" })
+	-- 		end
+
+	-- 		if hint ~= 0 then
+	-- 			table.insert(result, { text = "  " .. hint, fg = "#A3BA5E" })
+	-- 		end
+
+	-- 		if info ~= 0 then
+	-- 			table.insert(result, { text = "  " .. info, fg = "#7EA9A7" })
+	-- 		end
+	-- 		return result
+	-- 	end,
+	-- },
 })

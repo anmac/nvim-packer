@@ -10,9 +10,11 @@ end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
+local i = require("user.icons")
+
 nvim_tree.setup({
 	hijack_cursor = true,
-  open_on_setup = true,
+	open_on_setup = true,
 	reload_on_bufenter = true,
 	ignore_ft_on_setup = {
 		"startify",
@@ -63,7 +65,7 @@ nvim_tree.setup({
 				symlink = "",
 				bookmark = "",
 				folder = {
-          arrow_closed = "",
+					arrow_closed = "",
 					arrow_open = "",
 					default = "", -- 
 					open = "", -- 
@@ -73,31 +75,29 @@ nvim_tree.setup({
 					symlink_open = "",
 				},
 				git = {
-					unstaged = "",
-					staged = "S", -- ✓
-					unmerged = "",
-					renamed = "➜",
-					untracked = "U", -- ✗
-					deleted = "",
-					ignored = "", -- ◌
+					unstaged = i.git.status.Unstaged,
+					staged = i.git.status.Staged,
+					unmerged = i.git.status.Unmerged,
+					renamed = i.git.status.Renamed,
+					untracked = i.git.status.Untracked,
+					deleted = i.git.status.Deleted,
+					ignored = i.git.status.Ignored,
 				},
 			},
 		},
 	},
 	diagnostics = {
-		enable = true,
-    show_on_dirs = false,
+		enable = false,
+		show_on_dirs = false,
 		icons = {
-			hint = "",
-			info = "",
-			warning = "",
-			error = "",
+			hint = i.diagnostics.Hint,
+			info = i.diagnostics.Information,
+			warning = i.diagnostics.Warning,
+			error = i.diagnostics.Error,
 		},
 	},
 	update_focused_file = {
 		enable = true,
-		update_cwd = false,
-		ignore_list = {},
 	},
 	git = {
 		enable = true,

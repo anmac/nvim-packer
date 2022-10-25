@@ -99,7 +99,7 @@ local mappings = {
 	["e"] = { "<cmd>NvimTreeToggle<CR>", "File Explorer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No HL" },
 	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<CR>", "Projects" },
-	["q"] = { "<cmd>q<CR>", "Quit" },
+	["q"] = { "<cmd>lua require('user.functions').smart_quit()<CR>", "Quit" },
 	["Q"] = { "<cmd>q!<CR>", "Quit whitout save" },
 	["w"] = { "<cmd>w<CR>", "Write" },
 	["x"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
@@ -115,11 +115,13 @@ local mappings = {
 		A = { "<cmd>lua require('Comment.api').insert.linewise.eol()<CR>", "Comment at the end" },
 	},
 
-	C = { -- set foldmethod=manual
-		name = "Folding",
-		c = { "<Esc>zfi{", "Curly Braces" },
-		b = { "<Esc>zfi[", "Brackets" },
-	},
+	-- C = { -- set foldmethod=manual
+	-- 	name = "Folding",
+	-- 	c = { "<Esc>zfi{", "Curly Braces" },
+	-- 	b = { "<Esc>zfi[", "Brackets" },
+	-- },
+
+	d = { "<cmd>DogeGenerate<CR>", "DoGe" },
 
 	D = {
 		name = "Debug",
@@ -198,7 +200,7 @@ local mappings = {
 		f = { "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", "Format" },
 		F = { "<cmd>LspToggleAutoFormat<CR>", "Toggle Autoformat" },
 		i = { "<cmd>LspInfo<CR>", "Info" },
-		I = { "<cmd>LspInstallInfo<CR>", "Installer Info" },
+		I = { "<cmd>Mason<CR>", "Installer Info" },
 		j = {
 			"<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>",
 			"Next Diagnostic",
@@ -229,6 +231,8 @@ local mappings = {
 
 	o = {
 		name = "Options",
+		c = { "<cmd>lua vim.g.cmp_active=false<cr>", "Completion off" },
+		C = { "<cmd>lua vim.g.cmp_active=true<cr>", "Completion on" },
 		w = { "<cmd>lua require('user.functions').toggle_option('wrap')<CR>", "Wrap" },
 		r = { "<cmd>lua require('user.functions').toggle_option('relativenumber')<CR>", "Relative" },
 		l = { "<cmd>lua require('user.functions').toggle_option('cursorline')<CR>", "Cursorline" },

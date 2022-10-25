@@ -69,14 +69,14 @@ configs.setup({
 		enable = true,
 	},
 	matchup = {
-		enable = true, -- mandatory, false will disable the whole extension
+		enable = false, -- mandatory, false will disable the whole extension
 		disable_virtual_text = true,
 		disable = { "html" }, -- optional, list of language that will be disabled
-		include_match_words = false,
+		include_match_words = true,
 		matchup_matchparen_enabled = false, -- To disable match highlighting at startup set 0
 		matchup_matchparen_offscreen = { method = nil },
 		matchup_surround_enabled = true,
 		loaded_matchit = true, -- you may see a very slight start-up time improvement
-		matchup_matchparen_fallback = true, -- Will highlight matchpairs such as (), [], & {}
+		matchup_matchparen_fallback = false, -- Will highlight matchpairs such as (), [], & {}
 	},
 })

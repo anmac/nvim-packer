@@ -18,12 +18,13 @@ null_ls.setup({
 			extra_filetypes = { "toml", "solidity" },
 			-- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
 		}),
-		-- diagnostics.eslint,
+		diagnostics.eslint,
 		formatting.black.with({ extra_args = { "--fast" } }), -- python
 		diagnostics.flake8, -- python
 		formatting.stylua, -- lua
 		formatting.google_java_format, --java
 		formatting.shfmt, -- bash
 		diagnostics.shellcheck, -- bash
+    formatting.phpcbf, -- php
 	},
 })

@@ -3,21 +3,15 @@ if not status_ok then
 	return
 end
 
-local gitSings = {
-  add = "", -- ▎
-  change = "", -- ▎
-  delete = "", -- 契 
-  topdelete = "", --  
-  changedelete= "契", -- ▎ 
-}
+local i = require("user.icons").git.signs.vscode;
 
 gitsigns.setup({
 	signs = {
-		add = { hl = "GitSignsAdd", text = gitSings["add"], numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-		change = { hl = "GitSignsChange", text = gitSings["change"], numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-		delete = { hl = "GitSignsDelete", text = gitSings["delete"], numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-		topdelete = { hl = "GitSignsDelete", text = gitSings["topdelete"], numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-		changedelete = { hl = "GitSignsChange", text = gitSings["changedelete"], numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+		add = { hl = "GitSignsAdd", text = i.Add, numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+		change = { hl = "GitSignsChange", text = i.Change, numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+		delete = { hl = "GitSignsDelete", text = i.Delete, numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+		topdelete = { hl = "GitSignsDelete", text = i.Topdelete, numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+		changedelete = { hl = "GitSignsChange", text = i.Changedelete, numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
 	},
 	current_line_blame_opts = {
 		virt_text = true,
