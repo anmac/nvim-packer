@@ -17,8 +17,8 @@ notify.setup({
 		TRACE = "✎",
 		WARN = "",
 	},
-  on_open = {},
-  on_close = {},
+  on_open = nil,
+  on_close = nil,
   render = "default", -- default, minimal, simple
 	minimum_width = 10,
 	fps = 30,

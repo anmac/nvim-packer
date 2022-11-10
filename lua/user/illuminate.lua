@@ -37,6 +37,7 @@ illuminate.configure({
 		"packer",
 		"startify",
 		"toggleterm",
+    "TelescopePrompt",
 		"",
 	},
 	modes_denylist = { "Visual", "visual", "V", "v", "" },

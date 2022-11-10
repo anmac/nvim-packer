@@ -25,6 +25,8 @@ null_ls.setup({
 		formatting.google_java_format, --java
 		formatting.shfmt, -- bash
 		diagnostics.shellcheck, -- bash
-    formatting.phpcbf, -- php
+    -- formatting.phpcbf, -- php
+    formatting.phpcsfixer, -- php
+    -- diagnostics.phpcs --php
 	},
 })

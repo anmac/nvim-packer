@@ -65,14 +65,14 @@ return packer.startup(function(use)
 	-- Colorschemes
 	use("lunarvim/darkplus.nvim")
 	use("folke/tokyonight.nvim")
-	use("tiagovla/tokyodark.nvim")
+	-- use("tiagovla/tokyodark.nvim")
 	use("ellisonleao/gruvbox.nvim")
 	use("sainnhe/gruvbox-material")
 	use("rose-pine/neovim")
 	use("olimorris/onedarkpro.nvim")
-	use("bluz71/vim-nightfly-guicolors")
+	-- use("bluz71/vim-nightfly-guicolors")
 	use("shaunsingh/moonlight.nvim")
-	use("rmehri01/onenord.nvim")
+	-- use("rmehri01/onenord.nvim")
 	use("lunarvim/synthwave84.nvim")
 	use({
 		"catppuccin/nvim",
@@ -110,7 +110,6 @@ return packer.startup(function(use)
 	use("SmiteshP/nvim-navic") -- Simple plugin that shows your current code context
 	use("b0o/SchemaStore.nvim") -- JSON schemas for Neovim
 	use("RRethy/vim-illuminate") -- highlighting other uses of the word under the cursor. Use LSP for intelligent hl
-	use("j-hui/fidget.nvim") -- Standalone UI for nvim-lsp progress
 	use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
 	-- use "github/copilot.vim"
 	-- use {
@@ -168,6 +167,9 @@ return packer.startup(function(use)
 			vim.fn["mkdp#util#install"]()
 		end,
 	})
+
+	-- Game to practice basic movements
+	use("ThePrimeagen/vim-be-good")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
