@@ -115,10 +115,10 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
 	end
 
-	if server == "pyright" then
-		local pyright_opts = require("user.lsp.settings.pyright")
-		opts = vim.tbl_deep_extend("force", pyright_opts, opts)
-	end
+	-- if server == "pyright" then
+	-- 	local pyright_opts = require("user.lsp.settings.pyright")
+	-- 	opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+	-- end
 
 	if server == "solc" then
 		local solc_opts = require("user.lsp.settings.solc")

@@ -12,6 +12,7 @@ gitsigns.setup({
 		delete = { hl = "GitSignsDelete", text = i.Delete, numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
 		topdelete = { hl = "GitSignsDelete", text = i.Topdelete, numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
 		changedelete = { hl = "GitSignsChange", text = i.Changedelete, numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+    untracked = { hl = "GitSignsAdd", text = i.Untracked, numhl= "GitSignsAddNr", linehl= "GitSignsAddLn" },
 	},
 	current_line_blame_opts = {
 		virt_text = true,

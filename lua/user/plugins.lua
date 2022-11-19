@@ -121,7 +121,7 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope.nvim") -- Find, Filter, Preview, Pick. All lua, all the time.
 	use({ -- FZF sorter for telescope written in c
 		"nvim-telescope/telescope-fzf-native.nvim",
-		run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+		run = "make",
 	})
 	use("nvim-telescope/telescope-media-files.nvim") -- Telescope extension to preview media files using Ueberzug
 	use("nvim-telescope/telescope-project.nvim")
@@ -159,6 +159,9 @@ return packer.startup(function(use)
 
 	-- Rust
 	-- use "simrat39/rust-tools.nvim" -- Tools for better development in rust using neovim's builtin lsp
+
+	-- Eww
+	use("elkowar/yuck.vim")
 
 	-- Markdown
 	use({

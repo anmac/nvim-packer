@@ -100,6 +100,7 @@ return {
 				Delete = "", -- 契 
 				Topdelete = "", --  
 				Changedelete = "契", -- ▎ 
+        Untracked = "┆",
 			},
 			vscode = {
 				Add = "┃", -- │
@@ -107,6 +108,7 @@ return {
 				Delete = "",
 				Topdelete = "",
 				Changedelete = "",
+        Untracked = "┃",
 			},
 		},
 		status = {
