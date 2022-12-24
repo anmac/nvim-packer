@@ -39,6 +39,8 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif")
+vim.cmd("autocmd BufWinLeave * let b:winview = winsaveview()")
+vim.cmd("autocmd BufWinEnter * if exists('b:winview') | call winrestview(b:winview) | endif")
 -- vim.cmd("autocmd ModeChanged [vV\x16]*:* hi illuminatedWord guifg=NONE guibg=NONE")
 
 -- Fixes Autocomment
@@ -75,5 +77,13 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
       hi MatchParen guifg=#fab387 cterm=italic gui=italic
       hi MatchWord cterm=bold gui=bold guifg=NONE guibg=NONE
     ]])
+	end,
+})
+
+-- Restore last cursor position
+vim.api.nvim_create_autocmd({ "BufReadPost " }, {
+	pattern = { "*" },
+	callback = function()
+		vim.api.nvim_exec('silent! normal! g`"zv', false)
 	end,
 })

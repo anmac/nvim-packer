@@ -26,7 +26,7 @@ notify.setup({
 })
 
 -- Other plugins can use the notification windows by setting it as your default notify function
-vim.notify = notify
+-- vim.notify = notify
 
 local notify_filter = vim.notify
 vim.notify = function(msg, ...)

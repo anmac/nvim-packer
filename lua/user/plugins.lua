@@ -46,12 +46,18 @@ return packer.startup(function(use)
 	use("numToStr/Comment.nvim") -- Easily comment stuff
 	use("NvChad/nvim-colorizer.lua") -- Maintained fork of the fastest Neovim colorizer
 	use({ "nvim-colortils/colortils.nvim", cmd = "Colortils" }) -- Some color utils for neovim
-	use("kyazdani42/nvim-web-devicons") -- Devicons for Neovim
-	use("kyazdani42/nvim-tree.lua") -- A file explorer tree
+	use("nvim-tree/nvim-web-devicons") -- Devicons for Neovim
+	use("nvim-tree/nvim-tree.lua") -- A file explorer tree
 	use("akinsho/bufferline.nvim") -- A snazzy bufferline for Neovim
 	use("moll/vim-bbye") -- Delete buffers and close files like :bdelete, but rewritten and well maintained
 	use("nvim-lualine/lualine.nvim") -- A statusline written in pure lua
 	use("akinsho/toggleterm.nvim") -- Manage multiple terminal windows
+	use({
+		"NvChad/nvterm",
+		config = function()
+			require("nvterm").setup()
+		end,
+	}) -- NvChad Official Terminal Plugin
 	use("ahmedkhalf/project.nvim") -- The superior project management solution for neovim
 	use("lewis6991/impatient.nvim") -- Improve startup time for Neovim
 	use("lukas-reineke/indent-blankline.nvim") -- Indent guides for Neovim
@@ -65,14 +71,11 @@ return packer.startup(function(use)
 	-- Colorschemes
 	use("lunarvim/darkplus.nvim")
 	use("folke/tokyonight.nvim")
-	-- use("tiagovla/tokyodark.nvim")
 	use("ellisonleao/gruvbox.nvim")
 	use("sainnhe/gruvbox-material")
 	use("rose-pine/neovim")
 	use("olimorris/onedarkpro.nvim")
-	-- use("bluz71/vim-nightfly-guicolors")
 	use("shaunsingh/moonlight.nvim")
-	-- use("rmehri01/onenord.nvim")
 	use("lunarvim/synthwave84.nvim")
 	use({
 		"catppuccin/nvim",
