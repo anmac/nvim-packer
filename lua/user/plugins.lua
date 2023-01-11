@@ -45,7 +45,7 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	use("numToStr/Comment.nvim") -- Easily comment stuff
 	use("NvChad/nvim-colorizer.lua") -- Maintained fork of the fastest Neovim colorizer
-	use({ "nvim-colortils/colortils.nvim", cmd = "Colortils" }) -- Some color utils for neovim
+	-- use({ "nvim-colortils/colortils.nvim", cmd = "Colortils" }) -- Some color utils for neovim
 	use("nvim-tree/nvim-web-devicons") -- Devicons for Neovim
 	use("nvim-tree/nvim-tree.lua") -- A file explorer tree
 	use("akinsho/bufferline.nvim") -- A snazzy bufferline for Neovim
@@ -70,11 +70,11 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	use("lunarvim/darkplus.nvim")
-	use("folke/tokyonight.nvim")
+	-- use("folke/tokyonight.nvim")
 	use("ellisonleao/gruvbox.nvim")
 	use("sainnhe/gruvbox-material")
 	use("rose-pine/neovim")
-	use("olimorris/onedarkpro.nvim")
+	-- use("olimorris/onedarkpro.nvim")
 	use("shaunsingh/moonlight.nvim")
 	use("lunarvim/synthwave84.nvim")
 	use({
