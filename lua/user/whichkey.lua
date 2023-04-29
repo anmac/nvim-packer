@@ -121,7 +121,7 @@ local mappings = {
 	-- 	b = { "<Esc>zfi[", "Brackets" },
 	-- },
 
-	d = { "<cmd>DogeGenerate<CR>", "DoGe" },
+	-- d = { "<cmd>DogeGenerate<CR>", "DoGe" },
 
 	D = {
 		name = "Debug",
@@ -171,7 +171,7 @@ local mappings = {
 			"<cmd>lua require 'gitsigns'.undo_stage_hunk()<CR>",
 			"Undo Stage Hunk",
 		},
-		o = { "<cmd>Telescope git_status<CR>", "Open changed file" },
+		o = { "<cmd>Telescope git_status<CR>", "Open changed file(s)" },
 		b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
 		c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" },
 		d = {

@@ -22,7 +22,7 @@ local servers = {
 	"pyright",
 	"rust_analyzer",
 	"solc",
-	"sumneko_lua",
+	"lua_ls",
 	"taplo",
 	"terraformls",
 	"tflint",

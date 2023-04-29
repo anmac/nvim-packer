@@ -21,6 +21,7 @@ else
 	vim.cmd([[highlight LineNr guifg=#6d707c]])
 	vim.cmd([[highlight CursorLineNr guifg=#5eacd3]])
 	vim.cmd([[highlight Comment guifg=#9EA0AA]])
+	vim.cmd([[highlight GitSignsCurrentLineBlame guifg=#6d707c]])
 	vim.cmd([[highlight NonText guifg=#50545d]])
 	vim.cmd([[highlight Visual cterm=bold gui=bold guibg=#264f78]])
 end

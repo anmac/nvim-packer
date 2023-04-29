@@ -10,27 +10,22 @@ end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
+require("lsp-file-operations").setup()
+
 local i = require("user.icons")
 
 nvim_tree.setup({
 	hijack_cursor = true,
-	open_on_setup = true,
 	reload_on_bufenter = true,
-	ignore_ft_on_setup = {
-		"startify",
-		"dashboard",
-		"alpha",
-		"toggleterm",
-	},
 	view = {
 		width = 30,
 		hide_root_folder = false,
 		side = "left",
 		mappings = {
 			custom_only = false,
-			list = {
-				{ key = "v", cb = tree_cb("vsplit") },
-			},
+			-- list = {
+			-- 	{ key = "v", cb = tree_cb("vsplit") },
+			-- },
 		},
 	},
 	renderer = {

@@ -97,6 +97,7 @@ keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
+local builtin = require("telescope.builtin")
 -- Telescope
 -- keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 -- keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)

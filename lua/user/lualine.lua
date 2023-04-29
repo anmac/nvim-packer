@@ -13,6 +13,7 @@ local istatus = i.git.status
 
 vim.api.nvim_set_hl(0, "SLGitIcon", { fg = "#D16969" })
 vim.api.nvim_set_hl(0, "SLBranchName", { fg = "#DFAFDF" })
+vim.api.nvim_set_hl(0, "SLTabnine", { fg = "#C586C0" })
 vim.api.nvim_set_hl(0, "SLProgress", { fg = "#D4D4D4" })
 vim.api.nvim_set_hl(0, "SLSeparator", { fg = "#808080", bg = "#252525" })
 local mode_color = {
@@ -68,7 +69,6 @@ local diff = {
 	colored = true,
 	symbols = { added = istatus.Add, modified = istatus.Mod, removed = istatus.Remove }, -- changes diff symbols
 	cond = hide_git_in_width,
-	-- separator = "%#SLSeparator#" .. "│ " .. "%*",
 }
 
 local filetype = {
@@ -111,18 +111,16 @@ local branch = {
 
 local spaces = {
 	function()
-		return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+		return " spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 	end,
 	padding = 0,
 	cond = hide_section_in_width,
-	-- separator = "%#SLSeparator#" .. " │" .. "%*",
 	separator = " │",
 }
 
 local encoding = {
 	"encoding",
 	cond = hide_section_in_width,
-	-- separator = "%#SLSeparator#" .. "│" .. "%*",
 }
 
 local progress = {
@@ -135,6 +133,16 @@ local location = {
 	color = function()
 		return { fg = "#252525", bg = mode_color[vim.fn.mode()] }
 	end,
+}
+
+local tabnine_status = {
+	function()
+		local status = require("tabnine.status").status()
+		local parts = vim.split(status, " ")
+		return "%#SLTabnine#" .. parts[1] .. " %* " .. parts[2] .. " " .. parts[3]
+	end,
+	colored = true,
+	cond = hide_section_in_width,
 }
 
 lualine.setup({
@@ -151,8 +159,7 @@ lualine.setup({
 		lualine_a = { mode },
 		lualine_b = { branch },
 		lualine_c = { diagnostics, diff },
-		-- lualine_c = { { current_signature, cond = hide_in_width } },
-		lualine_x = { spaces, encoding, filetype },
+		lualine_x = { tabnine_status, spaces, encoding, filetype },
 		lualine_y = { progress },
 		lualine_z = { location },
 	},

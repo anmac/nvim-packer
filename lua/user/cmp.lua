@@ -116,7 +116,7 @@ cmp.setup({
 				end
 
 				kind.kind = " " .. strings[1] .. " "
-				kind.menu = " (" .. strings[2] .. ")"
+				-- kind.menu = " (" .. strings[2] .. ")"
 				return kind
 			end
 		end,
@@ -149,6 +149,43 @@ cmp.setup({
 		},
 	},
 	experimental = {
-		ghost_text = true,
+		ghost_text = false,
 	},
+})
+
+-- `/` cmdline setup.
+cmp.setup.cmdline("/", {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = {
+		{ name = "buffer" },
+	},
+})
+
+-- `:` cmdline setup.
+cmp.setup.cmdline(":", {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = cmp.config.sources({
+		{ name = "path" },
+	}, {
+		{
+			name = "cmdline",
+			option = {
+				ignore_cmds = { "Man", "!" },
+			},
+		},
+	}),
+})
+
+local tabnine_status, tabnine = pcall(require, "tabnine")
+if not tabnine_status then
+	return
+end
+
+tabnine.setup({
+	disable_auto_comment = true,
+	accept_keymap = "<Tab>",
+	dismiss_keymap = "<C-]>",
+	debounce_ms = 600,
+	suggestion_color = { gui = "#808080", cterm = 244 },
+	exclude_filetypes = { "TelescopePrompt" },
 })

@@ -48,6 +48,7 @@ return packer.startup(function(use)
 	-- use({ "nvim-colortils/colortils.nvim", cmd = "Colortils" }) -- Some color utils for neovim
 	use("nvim-tree/nvim-web-devicons") -- Devicons for Neovim
 	use("nvim-tree/nvim-tree.lua") -- A file explorer tree
+	use("antosha417/nvim-lsp-file-operations") -- Neovim plugin that adds support for file operations using built-in LSP
 	use("akinsho/bufferline.nvim") -- A snazzy bufferline for Neovim
 	use("moll/vim-bbye") -- Delete buffers and close files like :bdelete, but rewritten and well maintained
 	use("nvim-lualine/lualine.nvim") -- A statusline written in pure lua
@@ -69,14 +70,12 @@ return packer.startup(function(use)
 	use("folke/zen-mode.nvim") -- 🧘 Distraction-free coding for Neovim
 
 	-- Colorschemes
-	use("lunarvim/darkplus.nvim")
+  use("ellisonleao/gruvbox.nvim")
+  -- use("sainnhe/gruvbox-material")
+  use("shaunsingh/moonlight.nvim")
+  use("lunarvim/synthwave84.nvim")
 	-- use("folke/tokyonight.nvim")
-	use("ellisonleao/gruvbox.nvim")
-	use("sainnhe/gruvbox-material")
-	use("rose-pine/neovim")
-	-- use("olimorris/onedarkpro.nvim")
-	use("shaunsingh/moonlight.nvim")
-	use("lunarvim/synthwave84.nvim")
+  use("rose-pine/neovim")
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
@@ -103,6 +102,7 @@ return packer.startup(function(use)
 		"kkoomen/vim-doge",
 		run = ":call doge#install()",
 	})
+	use({ "codota/tabnine-nvim", run = "./dl_binaries.sh" }) -- Tabnine completion
 
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
@@ -137,7 +137,7 @@ return packer.startup(function(use)
 	use("nvim-treesitter/nvim-tree-docs") -- Code documentation built with treesitter
 	use("nvim-treesitter/nvim-treesitter-context") -- Show code context
 	use("JoosepAlviste/nvim-ts-context-commentstring") -- setting the commentstring based on the cursor location in a file
-	use("p00f/nvim-ts-rainbow") -- Rainbow parentheses for neovim using tree-sitter. https://sr.ht/~p00f/nvim-ts-rainbow preferred
+	use("mrjones2014/nvim-ts-rainbow") -- Rainbow parentheses for neovim using tree-sitter. Forked from p00f/nvim-ts-rainbow
 	use("windwp/nvim-ts-autotag") -- Autopairs, integrates with both cmp and treesitter
 	use("nvim-treesitter/playground") -- Treesitter playground integrated into Neovim
 	use("andymass/vim-matchup") -- vim match-up: even better % fist_oncoming navigate and highlight matching words fist_oncoming modern matchit and matchparen

@@ -14,6 +14,7 @@ gitsigns.setup({
 		changedelete = { hl = "GitSignsChange", text = i.Changedelete, numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
     untracked = { hl = "GitSignsAdd", text = i.Untracked, numhl= "GitSignsAddNr", linehl= "GitSignsAddLn" },
 	},
+  current_line_blame = true,
 	current_line_blame_opts = {
 		virt_text = true,
 		virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'

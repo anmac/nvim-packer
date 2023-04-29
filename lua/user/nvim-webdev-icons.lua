@@ -58,4 +58,41 @@ nvim_web_devicons.set_icon({
 		cterm_color = "59",
 		name = "Dockerfile",
 	},
+	["docker-compose.yml"] = {
+		icon = "",
+		color = "#6dc8f2",
+		cterm_color = "59",
+		name = "Dockercompose",
+	},
+	[".dockerignore"] = {
+		icon = "",
+		color = "#6dc8f2",
+		cterm_color = "59",
+		name = "Dockerignore",
+	},
+	["yarn.lock"] = {
+		icon = "",
+		color = "#0288d1",
+		cterm_color = "59",
+		name = "Yarn",
+	},
+	zip = {
+		icon = "󰛫",
+		color = "#afb42b",
+		cterm_color = "59",
+		name = "Zip",
+	},
+  iml = {
+    icon = "",
+  },
+  [".classpath"] = {
+    icon = "",
+    color = "#8173c4",
+    name = "Eclipse",
+  },
+  [".project"] = {
+    icon = "",
+    color = "#8173c4",
+    name = "Eclipse",
+  }
 })
